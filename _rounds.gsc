@@ -24,6 +24,8 @@ main() {
 }
 
 init() {
+  level.max_zombie_limit = 24;
+  level.zombie_health_cap = 30;
   level.max_zombie_func = ::get_round_zombie_limit;
 }
 
@@ -46,7 +48,7 @@ get_round_zombie_limit(max_num) {
   else if (level.round_number < 6)
     zombies = int(max_num * 0.9);
 
-  cap = 24 * player_count;
+  cap = int(level.max_zombie_limit * player_count);
 
   if (zombies > cap)
     zombies = cap;
@@ -194,7 +196,7 @@ uncapped_round_think(restart) {
 }
 
 capped_zombie_health(round_number) {
-  if (round_number > 30)
+  if (round_number > level.zombie_health_cap)
     round_number = 30;
 
   level.zombie_health = level.zombie_vars["zombie_health_start"];

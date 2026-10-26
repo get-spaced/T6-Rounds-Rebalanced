@@ -60,11 +60,6 @@ uncapped_round_think(restart) {
 
   level endon("end_round_think");
 
-  // level.round_number = 10;
-  // level.first_round = false;
-  // level.zombie_vars["zombie_spawn_delay"] = 1.2605;
-  // level.zombie_move_speed = 105;
-
   round_one_up_func = getfunction("maps/mp/zombies/_zm", "round_one_up");
   award_grenades_func = getfunction("maps/mp/zombies/_zm", "award_grenades_for_survivors");
   revive_func = getfunction("maps/mp/zombies/_zm", "last_stand_revive");
